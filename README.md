@@ -28,4 +28,18 @@
 
 > docker run -d --rm -p 80:80 --name server -t server 
 
+> docker run -p 80:80 -v $(PWD)/httptest:/app/httptest:ro --name server -t server 
+
 > docker run -d --rm -p 80:80 -v $(PWD)/httptest:/app/httptest:ro --name server -t server 
+
+## Docker Server install [ab](https://bobcares.com/blog/apache-benchmark-install-ubuntu/)
+
+> apt-get update
+
+> apt-get install apache2-utils 
+
+> ab -V
+
+## Server test
+
+> ab -c 100 -n 1000 http://127.0.0.1:80/httptest/wikipedia_russia.html
