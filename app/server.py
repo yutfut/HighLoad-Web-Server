@@ -4,7 +4,7 @@ import os
 from app.handler import handler
 
 HOST = "localhost"
-PORT = 8000
+PORT = 80
 LIMIT_CONNECTIONS = 256
 LIMIT_FORKS = 8
 WORKERS = []

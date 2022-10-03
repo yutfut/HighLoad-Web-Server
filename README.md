@@ -19,6 +19,7 @@
 ## Docker test
 
 > ab -c 100 -n 1000 http://127.0.0.1:8888/wikipedia_russia.html
+
 > ab -c 100 -n 1000 http://127.0.0.1:8888/httptest/wikipedia_russia.html
 
 ## HighLoad Server
@@ -27,4 +28,4 @@
 
 > docker run -d --rm -p 80:80 --name server -t server 
 
-> -v $(PWD)/httptest:/app/httptest:ro
+> docker run -d --rm -p 80:80 -v $(PWD)/httptest:/app/httptest:ro --name server -t server 
