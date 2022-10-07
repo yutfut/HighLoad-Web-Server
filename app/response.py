@@ -59,3 +59,6 @@ class Response:
 
         if status == "405":
             self.status = '405 NotAllowed'
+
+        if status == "500":
+            self.status = '500 Internal Server Error'

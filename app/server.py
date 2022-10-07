@@ -1,10 +1,12 @@
 import socket
 import os
 
+from test.handler_test import handler_test
 from app.handler import handler
+from app.response import Response
 
 HOST = "localhost"
-PORT = 80
+PORT = 8000
 LIMIT_CONNECTIONS = 256
 LIMIT_FORKS = 8
 WORKERS = []
@@ -32,8 +34,9 @@ def start():
 
                     try:
                         handler(connection)
-                    except Exception as exp:
-                        print('Error in prefork ', str(exp))
+                        # handler_test(connection)
+                    except Exception:
+                        connection.sendall(Response("500").encode())
 
                     connection.close()
 
@@ -45,7 +48,8 @@ def start():
 
             try:
                 handler(connection)
-            except Exception as exp:
-                print('Error in prefork ', str(exp))
+                # handler_test(connection)
+            except Exception:
+                connection.sendall(Response("500").encode())
 
             connection.close()

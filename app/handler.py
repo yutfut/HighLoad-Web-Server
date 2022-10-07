@@ -16,6 +16,7 @@ def read_file(path):
 
 def handler(che):
     in_buffer = b''
+    # разобраться
     while not in_buffer.endswith(b'\n'):
         in_buffer += che.recv(1024)
     data = in_buffer.decode()
@@ -47,7 +48,7 @@ def handler(che):
         return
     try:
         body = read_file(request.path)
-    except Exception as exp:
-        print('Ошибка чтения файла', str(exp))
+    except Exception as _:
+        che.sendall(Response("404").encode())
         return
     che.sendall(Response("200", request.path, request.method, body).encode())
