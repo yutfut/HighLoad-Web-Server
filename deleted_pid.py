@@ -1,7 +1,7 @@
 import os
 
-start = 2412
-finish = 2419
+start = 3058
+finish = 3066
 
 while start <= finish:
     os.system(f'sudo kill {start}')

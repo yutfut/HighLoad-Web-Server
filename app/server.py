@@ -10,8 +10,8 @@ PORT = 8000
 LIMIT_CONNECTIONS = 256
 LIMIT_FORKS = 8
 WORKERS = []
-DEBUG = False
-# DEBUG = True
+# DEBUG = False
+DEBUG = True
 
 
 def start():
